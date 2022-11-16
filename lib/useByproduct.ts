@@ -10,7 +10,7 @@ export function useByproduct<T>(
     let [_, setValue] = React.useState();
     let value = React.useRef(byproduct(produce, derive, deps));
     React.useEffect(() => {
-        value.current(setValue as unknown as Effect<T>);
+        value.current?.then(setValue as unknown as Effect<T>);
         return () => {
             value.current?.stop(setValue as unknown as Effect<T>);
         };

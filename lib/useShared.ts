@@ -6,7 +6,7 @@ export function useShared<T>(init: State<T>) {
     let value = React.useRef<State<T>>(init);
 
     React.useEffect(() => {
-        value.current(() => setValue(value.current.valueOf()));
+        value.current?.then(() => setValue(value.current.valueOf()));
         return () => {
             value.current?.stop(setValue);
         };

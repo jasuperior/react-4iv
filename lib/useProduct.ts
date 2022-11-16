@@ -9,7 +9,7 @@ export function useProduct<T>(
     let [_, setValue] = React.useState();
     let value = React.useRef<State<T>>(product(produce, deps));
     React.useEffect(() => {
-        value.current(setValue as unknown as Effect<T>);
+        value.current.then(setValue as unknown as Effect<T>);
         return () => {
             value.current?.stop(setValue as unknown as Effect<T>);
         };
