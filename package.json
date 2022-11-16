@@ -1,6 +1,6 @@
 {
     "name": "@oneii3/react-4iv",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "",
     "main": "public/index.js",
     "module": "public/index.es.js",
