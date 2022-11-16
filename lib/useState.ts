@@ -6,7 +6,7 @@ export function useState<T>(init: T) {
     let [_, setValue] = React.useState(init);
     let value = React.useRef<State<T>>(state(init));
     React.useEffect(() => {
-        value.current(setValue);
+        value.current?.(setValue);
         return () => {
             value.current?.stop(setValue);
         };
