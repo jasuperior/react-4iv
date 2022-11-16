@@ -3,8 +3,10 @@
     "version": "0.0.3",
     "description": "",
     "main": "public/index.js",
+    "module": "public/index.es.js",
+    "jsnext:main": "dist/index.es.js",
     "scripts": {
-        "build": "tsc",
+        "build": "rollup -c",
         "prepare": "yarn build",
         "version": "git add -A",
         "postversion": "git push && git push --tags"
@@ -13,13 +15,19 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@oneii3/4iv": "^0.0.3"
-    },
-    "peerDependencies": {
+        "@oneii3/4iv": "^0.0.4",
+        "@types/react": "^18.0.25",
         "react": "^16.8.6"
     },
     "devDependencies": {
         "prettier": "^2.7.1",
+        "rollup": "^1.1.2",
+        "rollup-plugin-babel": "^4.3.2",
+        "rollup-plugin-commonjs": "^9.2.0",
+        "rollup-plugin-node-resolve": "^4.0.0",
+        "rollup-plugin-peer-deps-external": "^2.2.0",
+        "rollup-plugin-typescript2": "^0.19.2",
+        "rollup-plugin-url": "^2.1.0",
         "tslint": "^6.1.3",
         "tslint-config-prettier": "^1.18.0",
         "typescript": "^4.8.4"

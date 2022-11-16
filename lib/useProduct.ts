@@ -1,5 +1,5 @@
 import { product } from "@oneii3/4iv/public/api";
-import { State } from "@oneii3/4iv/public/Model/model";
+import { State, Effect } from "@oneii3/4iv/public/Model/model";
 import React from "react";
 
 export function useProduct<T>(
@@ -9,9 +9,9 @@ export function useProduct<T>(
     let [_, setValue] = React.useState();
     let value = React.useRef<State<T>>(product(produce, deps));
     React.useEffect(() => {
-        value.current(setValue);
+        value.current(setValue as unknown as Effect<T>);
         return () => {
-            value.current?.stop(setValue);
+            value.current?.stop(setValue as unknown as Effect<T>);
         };
     }, []);
 

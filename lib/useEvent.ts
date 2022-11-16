@@ -6,7 +6,7 @@ export function useEvent<T>(callback: Callback<T>) {
     let [_, setArgs] = React.useState();
     let [__, setResult] = React.useState();
     let [___, setPayload] = React.useState();
-    let eventRef = React.useRef<State<T>>(event(callback));
+    let eventRef = React.useRef(event(callback));
     React.useEffect(() => {
         let [event, payload] = eventRef.current;
         let [args, result] = payload;
@@ -22,5 +22,5 @@ export function useEvent<T>(callback: Callback<T>) {
         };
     }, []);
 
-    return eventRef.current as [Callback<T>, State<T>];
+    return eventRef.current as [Callback<T>, State<any>];
 }
